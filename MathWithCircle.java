@@ -13,6 +13,6 @@ public class MathWithCircle {
         dt = Math.pow(r, 2) * Math.PI;
 
         System.out.println("Chu vi hinh tron: " + cv);
-        System.out.println("Dien tich hinh tron:" + dt);
+        System.out.println("Dien tich hinh tron: " + dt);
     }
 }
