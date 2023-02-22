@@ -46,6 +46,14 @@ class DSHS {
         }
     }
 
+    public void inputDSHS(String maSV, String hoTen, double diemTB) {
+        hs[n-1].input(maSV, hoTen, diemTB);
+    }
+
+    public void inputDSHS(HocSinh obj) {
+        hs[n-1].input(obj);
+    }
+
     public void outputDSHS() {
         System.out.print("\n");
         for (int i = 0; i < n; i++) {
