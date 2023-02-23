@@ -8,10 +8,6 @@ public class Demo1 {
         dshs.inputN();
         dshs.init();
         dshs.inputDSHS();
-        dshs.setN(dshs.n+1);
-        dshs.inputDSHS("789", "NKDuy", 3);
-        dshs.setN(dshs.n+1);
-        dshs.inputDSHS(dshs.hs[1]);
         dshs.outputDSHS();
     }
 }
