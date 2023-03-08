@@ -1,4 +1,4 @@
-package bai5;
+package bai5.cau1;
 
 public class SanhSu extends Goods {
 
