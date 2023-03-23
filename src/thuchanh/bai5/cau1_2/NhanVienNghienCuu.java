@@ -1,4 +1,4 @@
-package thuchanh.bai5.cau1;
+package thuchanh.bai5.cau1_2;
 
 class NhanVienNghienCuu extends NhanVien {
 

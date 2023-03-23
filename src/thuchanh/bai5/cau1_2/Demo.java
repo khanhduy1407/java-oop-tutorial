@@ -1,4 +1,4 @@
-package thuchanh.bai5.cau1;
+package thuchanh.bai5.cau1_2;
 
 import java.nio.charset.StandardCharsets;
 import java.util.Scanner;
@@ -6,6 +6,7 @@ import java.util.Scanner;
 public class Demo {
 
     public static void main(String[] args) {
+        HocVien hv = new HocVien();
         Scanner scanner = new Scanner(System.in, StandardCharsets.UTF_8);
 
         // Nhân viên quản
@@ -18,14 +19,13 @@ public class Demo {
         String trinhDoQL = scanner.nextLine();
         System.out.print("- Lương cơ bản: ");
         double luongCoBanQL = scanner.nextDouble();
-        scanner.nextLine(); // Bỏ qua dòng trống
+        scanner.nextLine();
         System.out.print("- Chuyên môn: ");
         String chuyenMonQL = scanner.nextLine();
         System.out.print("- Phụ cấp chức vụ: ");
         double phuCapChucVuQL = scanner.nextDouble();
-        scanner.nextLine(); // Bỏ qua dòng trống
-
-        NhanVienQuanLy nvQL = new NhanVienQuanLy(maNVQL, tenNVQL, trinhDoQL, luongCoBanQL, chuyenMonQL, phuCapChucVuQL);
+        scanner.nextLine();
+        NhanVien nvQL = new NhanVienQuanLy(maNVQL, tenNVQL, trinhDoQL, luongCoBanQL, chuyenMonQL, phuCapChucVuQL);
 
         // Nhân viên nghiên cứu
         System.out.println("\nNhập thông tin nhân viên nghiên cứu:");
@@ -37,37 +37,40 @@ public class Demo {
         String trinhDoNC = scanner.nextLine();
         System.out.print("- Lương cơ bản: ");
         double luongCoBanNC = scanner.nextDouble();
-        scanner.nextLine(); // Bỏ qua dòng trống
+        scanner.nextLine();
         System.out.print("- Chuyên môn: ");
         String chuyenMonNC = scanner.nextLine();
         System.out.print("- Phụ cấp độc hại: ");
         double phuCapDocHaiNC = scanner.nextDouble();
-        scanner.nextLine(); // Bỏ qua dòng trống
-
-        NhanVienNghienCuu nvNC = new NhanVienNghienCuu(maNVNC, tenNVNC, trinhDoNC, luongCoBanNC, chuyenMonNC, phuCapDocHaiNC);
+        scanner.nextLine();
+        NhanVien nvNC = new NhanVienNghienCuu(maNVNC, tenNVNC, trinhDoNC, luongCoBanNC, chuyenMonNC, phuCapDocHaiNC);
 
         // Nhân viên phục vụ
         System.out.println("\nNhập thông tin nhân viên phục vụ:");
         System.out.print("- Mã nhân viên: ");
-        String maNVPhucVu = scanner.nextLine();
+        String maNVPV = scanner.nextLine();
         System.out.print("- Tên nhân viên: ");
-        String tenNVPhucVu = scanner.nextLine();
+        String tenNVPV = scanner.nextLine();
         System.out.print("- Trình độ: ");
-        String trinhDoPhucVu = scanner.nextLine();
+        String trinhDoPV = scanner.nextLine();
         System.out.print("- Lương cơ bản: ");
-        double luongCoBanPhucVu = scanner.nextDouble();
-        scanner.nextLine(); // Bỏ qua dòng trống
-        NhanVienPhucVu nvPhucVu = new NhanVienPhucVu(maNVPhucVu, tenNVPhucVu, trinhDoPhucVu, luongCoBanPhucVu);
+        double luongCoBanPV = scanner.nextDouble();
+        scanner.nextLine();
+        NhanVien nvPV = new NhanVienPhucVu(maNVPV, tenNVPV, trinhDoPV, luongCoBanPV);
+
+        // Thêm các nhân viên vào học viện
+        hv.themNV(nvQL);
+        hv.themNV(nvNC);
+        hv.themNV(nvPV);
 
         // Hiển thị thông tin nhân viên
         System.out.println("\nThông tin nhân viên quản:");
         nvQL.output();
-
         System.out.println("\nThông tin nhân viên nghiên cứu:");
         nvNC.output();
-
         System.out.println("\nThông tin nhân viên phục vụ:");
-        nvPhucVu.output();
+        nvPV.output();
+        System.out.println("\nTổng lương của các nhân viên có trong học viện: " + hv.tongLuongCacNV() + "$");
 
         scanner.close();
     }
